@@ -1,1 +1,61 @@
+$primary: #26385a;
+$heigth: calc(100vh - 72px);
+
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap';
+
+@import '~ngx-toastr/toastr';
+
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+
+@import "./assets/table.scss";
+@import "./assets/sidebar.scss";
+@import "./app/components/table/table.component.scss";
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.router-link-active {
+  background-color: var(--bs-primary)!important;
+  color: #fff!important;
+}
+
+main.main {
+  height: $heigth;
+  display: flex;
+}
+
+html, body { height: 100%; }
+
+body {
+  font-family: "Poppins",sans-serif!important;
+  background-color: #f8f8fb;
+  line-height: 1.5;
+  color: #495057;
+}
+
+.card {
+  border: 0 solid #f6f6f6!important;
+  margin-bottom: 24px;
+  box-shadow: 0 0.75rem 1.5rem rgb(18 38 63 / 3%);
+}
+
+label {
+  font-weight: 500!important;
+  margin-bottom: 0.5rem!important;
+}
+
+main {
+  .content {
+    flex-grow: 1;
+  }
+}
+
+.button-100 {
+  min-width: 100px;
+}
+

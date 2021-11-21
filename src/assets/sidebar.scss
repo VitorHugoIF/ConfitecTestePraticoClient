@@ -1,0 +1,36 @@
+.sidemenu {
+  height: $heigth;
+
+  .nav-item {
+    a {
+      color: var(--bs-primary)
+    }
+  }
+
+  .nav-item:hover {
+    a {
+      color: var(--bs-blue);
+    }
+  }
+}
+
+.sidemenuHide {
+  width:0!important;
+
+  * {
+    display: none;
+  }
+}
+
+.sidemenuShow {
+  width:250px!important;
+}
+
+@media (max-width: 992px) {
+  .sidemenu {
+    width:0px;
+
+    position: absolute;
+    z-index: 9999;
+  }
+}

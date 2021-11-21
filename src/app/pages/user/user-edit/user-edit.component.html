@@ -1,0 +1,111 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="mb-4" *ngIf="idUserSelected">Editar usuário</h4>
+          <h4 class="mb-4" *ngIf="!idUserSelected">Criar usuário</h4>
+
+          <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="nome">Nome</label>
+                  <input type="text" class="form-control" id="nome" [(ngModel)]="user.nome" name="nome"
+                    formControlName="nome" [ngClass]="{'is-invalid': formSubmit && formControls.nome.errors}">
+                  <div *ngIf="formSubmit && formControls.nome.errors" class="invalid-feedback">
+                    <span *ngIf="formControls.nome.errors.required">
+                      Campo obrigatório
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="sobrenome">Sobrenome</label>
+                  <input type="text" class="form-control" id="sobrenome" [(ngModel)]="user.sobrenome" name="sobrenome"
+                    formControlName="sobrenome" [ngClass]="{'is-invalid': formSubmit && formControls.sobrenome.errors}">
+                  <div *ngIf="formSubmit && formControls.sobrenome.errors" class="invalid-feedback">
+                    <span *ngIf="formControls.sobrenome.errors.required">
+                      Campo obrigatório
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email"
+                    formControlName="email" [ngClass]="{'is-invalid': formSubmit && formControls.email.errors}">
+                  <div *ngIf="formSubmit && formControls.email.errors" class="invalid-feedback">
+                    <span *ngIf="formControls.email.errors.required">
+                      Campo obrigatório
+                    </span>
+                    <span *ngIf="formControls.email.errors.email">
+                      Email inválido
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <label for="dataNascimento">Data de nascimento</label>
+                  <input type="date" class="form-control" id="dataNascimento" [(ngModel)]="user.dataNascimento"
+                    name="dataNascimento" formControlName="dataNascimento"
+                    [ngClass]="{'is-invalid': formSubmit && formControls.dataNascimento.errors}">
+                  <div *ngIf="formSubmit && formControls.dataNascimento.errors" class="invalid-feedback">
+                    <span *ngIf="formControls.dataNascimento.errors.required">
+                      Campo obrigatório
+                    </span>
+                    <span *ngIf="formControls.dataNascimento.errors.invalidDate">
+                      Data inválida
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <label for="escolaridade">Escolaridade</label>
+                  <select class="form-select" name="escolaridade" formControlName="escolaridade" id="escolaridade"
+                    [(ngModel)]="user.escolaridade"
+                    [ngClass]="{'is-invalid': formSubmit && formControls.escolaridade.errors}">
+                    <option *ngFor="let item of optionsSelect" [value]="item.key">
+                      {{item.value}}
+                    </option>
+                  </select>
+                  <div *ngIf="formSubmit && formControls.escolaridade.errors" class="invalid-feedback">
+                    <span *ngIf="formControls.escolaridade.errors.required">
+                      Campo obrigatório
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary button-100 button" [disabled]="saving">
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="saving"></span>
+                  Salvar
+                </button>
+
+                <button (click)="remove()" type="button" class="btn btn-outline-secondary button ms-4 button-100"
+                  [disabled]="saving">
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="saving"></span>
+                  Excluir
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

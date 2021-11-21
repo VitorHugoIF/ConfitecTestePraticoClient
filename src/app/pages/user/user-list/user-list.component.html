@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <app-table [tableOptions]="options" [dataTable]="dataTable">
+            <ng-container tableHeader>
+              <th sortable="nome">Nome</th>
+              <th sortable="dataCriacao">Sobrenome</th>
+              <th sortable="tipoCliente">Email</th>
+              <th sortable="nomeContainerGed">Data de nascimento</th>
+              <th sortable="status">Escolaridade</th>
+            </ng-container>
+
+            <ng-container tableBody>
+              <tr *ngFor="let user of service?.tables$ | async" class="cell-hover cell-link">
+                <td>
+                  <a href="javascript: void(0);" class="text-primary text-nowrap"
+                    [routerLink]="getLinkEditUser(user.id)" routerLinkActive="router-link-active">
+                    <ngb-highlight [result]="user.nome || 'Sem nome'" [term]="service.searchTerm"></ngb-highlight>
+                  </a>
+                </td>
+                <td class="text-nowrap">
+                  <a href="javascript: void(0);" class="text-primary text-nowrap"
+                    [routerLink]="getLinkEditUser(user.id)" routerLinkActive="router-link-active">
+                    <ngb-highlight [result]="user.sobrenome" [term]="service.searchTerm"></ngb-highlight>
+                  </a>
+                </td>
+                <td class="text-nowrap">
+                  <a href="javascript: void(0);" class="text-primary text-nowrap"
+                    [routerLink]="getLinkEditUser(user.id)" routerLinkActive="router-link-active">
+                    <ngb-highlight [result]="user.email" [term]="service.searchTerm"></ngb-highlight>
+                  </a>
+                </td>
+                <td class="text-nowrap">
+                  <a href="javascript: void(0);" class="text-primary text-nowrap"
+                    [routerLink]="getLinkEditUser(user.id)" routerLinkActive="router-link-active">
+                    <ngb-highlight [result]="user.dataNascimento | date:'dd/MM/yyyy'" [term]="service.searchTerm">
+                    </ngb-highlight>
+                  </a>
+                </td>
+                <td class="text-nowrap">
+                  <a href="javascript: void(0);" class="text-primary text-nowrap"
+                    [routerLink]="getLinkEditUser(user.id)" routerLinkActive="router-link-active">
+                    <ngb-highlight [result]="getDataScooling(user.escolaridade)" [term]="service.searchTerm">
+                    </ngb-highlight>
+                  </a>
+                </td>
+              </tr>
+            </ng-container>
+          </app-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
