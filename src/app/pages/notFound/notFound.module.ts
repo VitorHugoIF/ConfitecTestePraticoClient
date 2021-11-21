@@ -6,7 +6,8 @@ import { NotFoundComponent } from './notFound.component';
 const routes: Routes = [
   {
     path: '**',
-    component: NotFoundComponent
+    component: NotFoundComponent,
+    data: { title: 'Pagina nao encontrada' }
   }
 ];
 

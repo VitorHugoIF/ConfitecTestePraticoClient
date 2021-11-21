@@ -1,3 +1,4 @@
+import { PageLoadingModule } from './../components/pageLoading/pageLoading.module';
 import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 import { NgModule } from '@angular/core';
@@ -14,6 +15,7 @@ import { SidemenuComponent } from './sidemenu/sidemenu.component';
   imports: [
     BrowserModule,
     RouterModule,
+    PageLoadingModule
   ],
   exports: [LayoutComponent]
 })

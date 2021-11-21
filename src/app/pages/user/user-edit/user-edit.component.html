@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-body">
 
-          <h4 class="mb-4" *ngIf="idUserSelected">Editar usuário</h4>
+          <h4 class="mb-4" *ngIf="idUserSelected">Adicionar usuário</h4>
           <h4 class="mb-4" *ngIf="!idUserSelected">Criar usuário</h4>
 
           <form [formGroup]="userForm" (ngSubmit)="submitForm()">

@@ -17,21 +17,24 @@ const routes: Routes = [
     component: UserEditComponent,
     resolve: {
       UserEditService
-    }
+    },
+    data: { title: 'Adicionar usuario' }
   },
   {
     path: 'edit/:id',
     component: UserEditComponent,
     resolve: {
       UserEditService
-    }
+    },
+    data: { title: 'Editar usuario' }
   },
   {
     path: '',
     component: UserListComponent,
     resolve: {
       data: UserListService
-    }
+    },
+    data: { title: 'usuarios' }
   }
 ];
 
